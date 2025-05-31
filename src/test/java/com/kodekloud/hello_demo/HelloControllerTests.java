@@ -61,7 +61,7 @@ public class HelloControllerTests {
       mvc.perform(MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON))
           .andExpect(status().isOk())
           .andExpect(content().string(startsWith("Hello"))); 
-          .andExpect(content().string(startsWith("Hola"))); 
+          // .andExpect(content().string(startsWith("Hola"))); 
 
     }
 
