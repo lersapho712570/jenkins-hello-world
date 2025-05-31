@@ -5,6 +5,7 @@ pipeline {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "M398"
     }
+    // Fixed error java 17...
     // sudo apt update
     // sudo apt install openjdk-21-jdk -y
     // java -version
@@ -32,12 +33,13 @@ pipeline {
         }
         stage('Unit Test') {
             steps {
-                // script {
-                //     for (int i = 0; i < 60; i++){
-                //         echo ${i + 1}
-                //         sleep 1
-                //     }
-                // }
+                // script block for test stop jenkins service
+                script {
+                    for (int i = 0; i < 60; i++){
+                        echo ${i + 1}
+                        sleep 1
+                    }
+                }
                 sh 'mvn test'
             }
         }
